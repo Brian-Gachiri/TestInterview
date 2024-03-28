@@ -7,6 +7,7 @@ from .serializers import DeviceSerializer
 class DeviceViewSet(viewsets.ModelViewSet):
     queryset = Device.objects.all()
     serializer_class = DeviceSerializer
+    lookup_field = 'slug'
 
     def get_queryset(self):
         if self.action == 'list' and self.request.query_params.get('search'):
